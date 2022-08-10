@@ -36,7 +36,11 @@ class Login extends Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
+        if (response["error-code"] !=0){
+          alert('Username/password salah!');
+          return;
+        }
+        console.log(response.data["login-token"]);
         this.props.navigation.navigate('Home');
       })
       .catch((error) => {

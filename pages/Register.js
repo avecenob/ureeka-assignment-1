@@ -1,5 +1,5 @@
-import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { Component, useState } from 'react'
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { Component } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 
@@ -14,11 +14,6 @@ class Register extends Component {
             password: ''
         };
     }
-
-    // nav(navigate){
-    //     const navigation = useNavigation();
-    //     navigation.navigate(navigate);
-    // }
 
     handleRegister() {
         if (this.state.name === '') {
@@ -58,6 +53,8 @@ class Register extends Component {
             .then((response) => response.json())
             .then((response) => {
                 console.log('Success:', response);
+                alert('Account registered successfuly!');
+                this.props.navigation.navigate('Home');
             })
             .catch((error) => {
                 console.error('Error:', error);
