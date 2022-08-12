@@ -52,6 +52,10 @@ class Register extends Component {
         })
             .then((response) => response.json())
             .then((response) => {
+                if (response["error-code"] == 2) {
+                    alert('Email/phone is already used!');
+                    return;
+                }
                 console.log('Success:', response);
                 alert('Account registered successfuly!');
                 this.props.navigation.navigate('Home');
