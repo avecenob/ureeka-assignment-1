@@ -37,7 +37,7 @@ class Login extends Component {
       .then((response) => response.json())
       .then((response) => {
         if (response["error-code"] !=0){
-          alert('Username/password salah!');
+          alert('Incorrect username/password!!');
           return;
         }
         console.log(response.data["login-token"]);
